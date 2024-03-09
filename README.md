@@ -3,6 +3,7 @@ Recipe Web App Project called:  "One String to Rule Them All"
 
 ### **Requirements:**
    **1. Java**
+   
    **2. Maven**
     
 Install JDK
