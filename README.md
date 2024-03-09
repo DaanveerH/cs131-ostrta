@@ -2,8 +2,8 @@
 Recipe Web App Project called:  "One String to Rule Them All"
 
 ### **Requirements:**
-    **1. Java**
-    **2. Maven**
+   **1. Java**
+   **2. Maven**
     
 Install JDK
 If you don't have JDK installed on your machine, you can install it by clicking the download from [Oracle]. (https://www.oracle.com/java/technologies/downloads/) Get the up to date JDK.
