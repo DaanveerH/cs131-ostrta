@@ -35,6 +35,9 @@ Confirm with ```mvn -version``` in a new shell. The result should look similar t
     OS name: "mac os x", version: "10.8.5", arch: "x86_64", family: "mac"
 
 
+You may want to run a clean install of mvn before proceeding further. Do so by running the command:
+    ```mvn clean install```
+
 ### How to ping the server
 To ping the server with "Hello World" you should run the following command in your terminal.
 
