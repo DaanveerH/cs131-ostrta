@@ -20,7 +20,7 @@ public class RecipeSearchApp {
         int maxFat = 25;
         int number = 2;
 
-        // Construct the query URL
+        // query URL
         String urlString = String.format("%s?query=%s&maxFat=%d&number=%d&apiKey=%s",
                 baseUrl, query, maxFat, number, API_KEY);
 
@@ -30,7 +30,7 @@ public class RecipeSearchApp {
             conn.setRequestMethod("GET");
             conn.connect();
 
-            // Check for successful response
+            // check for successful response
             
             int responseCode = conn.getResponseCode();
             if (responseCode != HttpURLConnection.HTTP_OK) {
@@ -38,7 +38,7 @@ public class RecipeSearchApp {
                 return;
             }
 
-            // Read the response
+            // read the response
             Scanner scanner = new Scanner(url.openStream(), StandardCharsets.UTF_8.toString());
             scanner.useDelimiter("\\Z");
             String response = scanner.next();
