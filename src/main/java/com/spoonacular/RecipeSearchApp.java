@@ -12,17 +12,20 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class RecipeSearchApp {
-    private static final String API_KEY = "41a61e7ce95149b2975318bec5ac0783";
+    private static final String API_KEY = "48fef9e60f35484db667e103f75d1594";
 
-    public static void main(String[] args) {
+    public static void main(String str, int x) { // originally: public static void main (String[] args) {
         String baseUrl = "https://api.spoonacular.com/recipes/complexSearch";
-        String query = "pasta";
-        int maxFat = 25;
-        int number = 2;
+        String query = str;	// what to search for, can include multiple ingredients 
+        // above line originally : String query = "pasta";
+        int maxFat = 100;						// limits results to fat content below this value
+        int number = x;							// number of results to show
 
-        // query URL
+        // Construct the query URL
         String urlString = String.format("%s?query=%s&maxFat=%d&number=%d&apiKey=%s",
                 baseUrl, query, maxFat, number, API_KEY);
+        		// originally: String urlString = String.format("%s?query=%s&maxFat=%d&number=%d&apiKey=%s",
+        		// 					   baseUrl, query, maxFat, number, API_KEY); 
 
         try {
             URL url = new URL(urlString);
@@ -30,7 +33,7 @@ public class RecipeSearchApp {
             conn.setRequestMethod("GET");
             conn.connect();
 
-            // check for successful response
+            // Check for successful response
             
             int responseCode = conn.getResponseCode();
             if (responseCode != HttpURLConnection.HTTP_OK) {
@@ -38,16 +41,29 @@ public class RecipeSearchApp {
                 return;
             }
 
-            // read the response
+            // Read the response
             Scanner scanner = new Scanner(url.openStream(), StandardCharsets.UTF_8.toString());
             scanner.useDelimiter("\\Z");
+            
+            // split response into multiple lines
+            /*
+            String[] responseList = new String[x];  // create String array of X size, x = number of responses to show
+            for (int i=0; i < x; i++) {
+            	responseList[i] = scanner.next();
+            	System.out.println(responseList[i]);
+            }// end for loop
+            */
+            
+            // original code
             String response = scanner.next();
             scanner.close();
 
+            // original code
             System.out.println("Response: " + response);
-
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+        
+    } // end main
 }

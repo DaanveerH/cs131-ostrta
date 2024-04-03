@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.mongodb"},{"l":"com.mongodb.quickstart"},{"l":"com.spoonacular"},{"l":"com.spoonacular.client"},{"l":"com.spoonacular.client.auth"},{"l":"com.spoonacular.client.model"}];updateSearchResults();
