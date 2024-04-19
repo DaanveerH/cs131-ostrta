@@ -41,12 +41,10 @@ You may want to run a clean install of mvn before proceeding further. Do so by r
 ### How to ping the server
 To ping the server with "Hello World" you should run the following command in your terminal.
 
-```mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.HelloMongoDB"``` This should prompt the following response:
+```mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.HelloMongoDB"``` 
 
-    Hello MongoDB!
-    [INFO] ------------------------------------------------------------------------
-    [INFO] BUILD SUCCESS
-    [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  0.634 s
-    [INFO] Finished at: 2024-02-19T18:12:22+01:00
-    [INFO] ------------------------------------------------------------------------
+
+### TGould changes
+Run program through the terminal using the same command to ping the server.  
+
+
