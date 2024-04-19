@@ -10,6 +10,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+import org.json.*;
+import org.bson.Document;
 
 public class RecipeSearchApp {
     private static final String API_KEY = "48fef9e60f35484db667e103f75d1594";
@@ -17,16 +19,13 @@ public class RecipeSearchApp {
     public static void main(String str, int x) { // originally: public static void main (String[] args) {
         String baseUrl = "https://api.spoonacular.com/recipes/complexSearch";
         String query = str;	// what to search for, can include multiple ingredients 
-        // above line originally : String query = "pasta";
         int maxFat = 100;						// limits results to fat content below this value
         int number = x;							// number of results to show
-
-        // Construct the query URL
-        String urlString = String.format("%s?query=%s&maxFat=%d&number=%d&apiKey=%s",
-                baseUrl, query, maxFat, number, API_KEY);
-        		// originally: String urlString = String.format("%s?query=%s&maxFat=%d&number=%d&apiKey=%s",
-        		// 					   baseUrl, query, maxFat, number, API_KEY); 
-
+        
+        // Construct query URL (new attempt)
+        String urlString = String.format("%s?query=%s&number=%d&apiKey=%s", baseUrl, query, number, API_KEY);
+        // TODO: JSON => import org.JSON.*;   (DONE)
+        
         try {
             URL url = new URL(urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -43,23 +42,20 @@ public class RecipeSearchApp {
 
             // Read the response
             Scanner scanner = new Scanner(url.openStream(), StandardCharsets.UTF_8.toString());
-            scanner.useDelimiter("\\Z");
+            //scanner.useDelimiter("\\Z");
             
             // split response into multiple lines
-            /*
-            String[] responseList = new String[x];  // create String array of X size, x = number of responses to show
-            for (int i=0; i < x; i++) {
-            	responseList[i] = scanner.next();
-            	System.out.println(responseList[i]);
-            }// end for loop
-            */
+            scanner.useDelimiter("},|\\Z");
+            while(scanner.hasNext()) {
+            	System.out.println(scanner.next());
+            } // end while
             
             // original code
-            String response = scanner.next();
+            //String response = scanner.next();
             scanner.close();
 
             // original code
-            System.out.println("Response: " + response);
+            //System.out.println("Response: " + response);
             
         } catch (IOException e) {
             e.printStackTrace();
