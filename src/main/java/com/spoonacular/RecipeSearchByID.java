@@ -63,7 +63,8 @@ public class RecipeSearchByID {
             
             response = scanner.next();
             scanner.close();
-            System.out.println("Response: " + response);
+            System.out.println("");
+            System.out.println("Recipe: " + response);
         	System.out.println("1: save recipe");
         	System.out.println("any other key: new search");
             
