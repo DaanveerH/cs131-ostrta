@@ -11,6 +11,7 @@ import com.spoonacular.RecipeSearchByID;
 
 import java.util.Scanner;
 import org.bson.Document;
+import org.json.JSONObject;
 
 public class HelloMongoDB {
 
@@ -31,10 +32,11 @@ public class HelloMongoDB {
     	
     	while(noMoreLoopBool) {									// main menu loop
     		// print menu to console
+    		System.out.println("");
     		System.out.println("Options:");
     		System.out.println("1: search new recipes");		// TODO: search new recipes					(done)
-    		System.out.println("2: not working");				// TODO: view saved recipes					(in progress)
-    		System.out.println("3: create new recipe");			// TODO: create new recipe from scratch		(in progress)
+    		System.out.println("2: view saved recipes");		// TODO: view saved recipes					(in progress)
+    		System.out.println("3: not working");				// TODO: create new recipe from scratch		(in progress)
     		System.out.println("q: exit program");
     		// scan input from console to get next action
     		userInput = userIn.next();
@@ -46,27 +48,19 @@ public class HelloMongoDB {
     				HelloMongoDB.optionSearchRecipes(userIn);
     			} // end menuOption1
     			if ( userInputInt == menuOption2) {
-    				System.out.println("option 2 not available");
-    				//HelloMongoDB.optionViewSavedRecipes(userIn);
+    				//System.out.println("option 2 not available");
+    				HelloMongoDB.optionViewSavedRecipes(userIn);
     			} // end menuOption2
     			if ( userInputInt == menuOption3) {
-    				//System.out.println("option 3 not available");
-    				HelloMongoDB.optionCreateNewRecipe(userIn);
+    				System.out.println("option 3 not available");
+    				//HelloMongoDB.optionCreateNewRecipe(userIn);
     			} // end menuOption3
-    			else {
-    				System.out.println("invalid input");
-    				System.out.println("testing: isNumber");
-    			} // end else
     		} // end if isNumber
     		
     		if (!HelloMongoDB.isNumber(userInput)) {
     			if (userInput.equals(noMoreLoopString)) {
     				break;
     			} // end if .equals(Q)
-    			else {
-    				System.out.println("invalid input");
-    				System.out.println("testing: !isNumber");
-    			} // end else
     		} // end if !isNumber
     		
     	} // end main menu loop
@@ -77,6 +71,8 @@ public class HelloMongoDB {
     	 * - search new recipe:    (user input = 1) 	(done)
     	 * - viewing saved recipe: (user input = 2)		(in progress)
     	 * 		- from mongoDB
+    	 * 				- show all recipes				(done)
+    	 * 				- show individual recipe		(done)
     	 * 				- edit recipe					{MongoDBUpdate.main();}
     	 * 				- delete recipe					{MongoDBDelete.main();}
     	 * 				- print recipe
@@ -86,10 +82,23 @@ public class HelloMongoDB {
     	 * 						- check from existing spoonacular recipe
     	 */
     	
+    	// how to parse json string for specific arguements
+    	/*    	
+    	JSONObject responseJO;
+    	String jsonString = "";
+    	String recipeName = "";
+    	int    recipeId;
+        jsonString = cursor.next().toJson();
+        responseJO = new JSONObject(jsonString);
+        recipeId = responseJO.getInt("id");
+    	recipeName = responseJO.getString("title");
+        System.out.println(recipeId + ": " +recipeName); 
+    	*/
     	
     	
     	// close scanner (in)
     	userIn.close();
+    	System.out.println("");
     	System.out.println("exiting program");
     	System.out.println("see you next time");
     	
@@ -108,12 +117,13 @@ public class HelloMongoDB {
     
     public static void optionSearchRecipes(Scanner userIn) {
     	String 		paramsToSearch 		= "";
-    	int    		numResults			= 5;
+    	int    		numResults			= 5;			//TODO: change to higher number at later time
     	String 		noMoreLoopString 	= "q";
         int 		paramsToSearchID;
     	
     	while (!paramsToSearch.equals(noMoreLoopString)) {
 	    	//scan input from console to set params (hopefully)
+    		System.out.println("");
 	    	System.out.println("enter parameters");
 	    	System.out.println("q to return to menu");
 	    	paramsToSearch = userIn.next();
@@ -123,11 +133,13 @@ public class HelloMongoDB {
 	    		if (paramsToSearch.equals(noMoreLoopString)) {   	// if Q, then quit
 		    		break;
 		    	}// end if noMoreLoopString
+	    		System.out.println("");
 	    		System.out.println("the following was entered: " + paramsToSearch + ".");
 	    		RecipeSearchApp.main(paramsToSearch, numResults);
 	    	} // end if !isNumber
 	    	if (HelloMongoDB.isNumber(paramsToSearch)) { 			// if isNumber, then RecipeSearchByID
 	    		paramsToSearchID = Integer.parseInt(paramsToSearch);
+	    		System.out.println("");
 	    		System.out.println("the following was entered: " + paramsToSearch + ".");
 	    		RecipeSearchByID.main(paramsToSearchID, false, false, false, userIn); // takes recipeID=int, includeNutrition=bool, addWinePairing=bool, addTasteData=bool
 	    	} // end if isNumber 
@@ -140,7 +152,7 @@ public class HelloMongoDB {
     
     public static void optionViewSavedRecipes(Scanner userIn) {
     	// TODO: need connection to MongoDBRead
-    	//MongoDBRead.main();
+    	MongoDBRead.main(userIn);
     	// TODO: need connection to MongoDBUpdate
     	//MongoDBUpdate.main();
     	// TODO: need connection to MongoDBDelete

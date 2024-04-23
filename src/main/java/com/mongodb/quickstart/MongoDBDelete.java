@@ -33,7 +33,7 @@ public class MongoDBDelete {
             
             /*
             // delete many documents
-            filter = eq("student_id", 10001);
+            filter = eq("title", "Chorizo Lasagna Rolls");
             result = gradesCollection.deleteMany(filter);
             System.out.println(result);
             
