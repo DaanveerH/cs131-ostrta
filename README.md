@@ -47,4 +47,9 @@ To ping the server with "Hello World" you should run the following command in yo
 ### TGould changes
 Run program through the terminal using the same command to ping the server.  
 
+4/24/2024 
+- can search recipes in spoonacular by query or id
+- can view list of recipes saved in MongoDB
+- can view individual recipes saved in MongoDB by id or title
+- while viewing saved recipe, can delete recipe from DB by id or title
 
