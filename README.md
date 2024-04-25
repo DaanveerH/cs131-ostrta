@@ -49,7 +49,11 @@ Run program through the terminal using the same command to ping the server.
 
 4/24/2024 
 - can search recipes in spoonacular by query or id
+- from individual spoonacular recipe, can save to MongoDB
 - can view list of recipes saved in MongoDB
-- can view individual recipes saved in MongoDB by id or title
-- while viewing saved recipe, can delete recipe from DB by id or title
+- from list in MongoDB, can view individual recipes saved in MongoDB by id or title
+- from individual MongoDB recipe, can delete recipe from MongoDB by id or title
+still need:
+- from individual MongoDB recipe, update recipe in MongoDB
+- create recipe from scratch and save to MongoDB
 
