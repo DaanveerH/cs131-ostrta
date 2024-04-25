@@ -23,14 +23,10 @@ public class MongoDBRead {
         try (MongoClient mongoClient = MongoClients.create(connectionString)) {
             MongoDatabase sampleTrainingDB = mongoClient.getDatabase("CSC131_TM_Awesome");
             MongoCollection<Document> recipeCollection = sampleTrainingDB.getCollection("Data_Management");
-
-            // TODO: create code to take user input
-            // TODO: take user input to either exit to menu or show one specific recipe
-            // call findSpecificRecipe: 	MongoDBRead.findSpecificRecipe(recipeCollection, recipeTitle);
             
-            MongoDBRead.listAllRecipes(recipeCollection);
             
             while (!userIn.equals(noMoreLoopString)) {
+            	MongoDBRead.listAllRecipes(recipeCollection);
             	System.out.println("");
                 System.out.println("enter id or name to view complete recipe");
                 System.out.println("q to return to menu");
@@ -41,22 +37,56 @@ public class MongoDBRead {
 						break;
 					}
 					else {
-						MongoDBRead.findSpecificRecipeTitle(recipeCollection, userIn);
+						MongoDBRead.findSpecificRecipeTitle(recipeCollection, userIn, userInput);
 					}
 				} // end if !isNumber
 				if (HelloMongoDB.isNumber(userIn)) {
-	    			int userInputInt = Integer.parseInt(userIn);
-	    			MongoDBRead.findSpecificRecipeId(recipeCollection, userInputInt);
+	    			MongoDBRead.findSpecificRecipeId(recipeCollection, userIn, userInput);
 	    		} // end if isNumber 
             } // end while 
             
         } // end try
     } // end main
     
-    private static void findSpecificRecipeTitle (MongoCollection<Document> recipeCollection, String recipeTitle) {
+    private static void findSpecificRecipeTitle (MongoCollection<Document> recipeCollection, String recipeTitle, Scanner userInput) {
         // find one document with new Document
         Document student1 = recipeCollection.find(new Document("title", recipeTitle)).first();
+        if (student1 == null) {
+        	System.out.println("cant find that recipe");
+        	System.out.println("returning to saved recipes");
+        	return;
+        }
+        
         System.out.println(recipeTitle + ": " + student1.toJson());
+        
+        String noMoreLoopString = "q";
+        String userIn = "";
+        
+        while (!userIn.equals(noMoreLoopString)) {
+        	System.out.println("");
+            System.out.println("1: update recipe");
+            System.out.println("2: delete recipe");
+            System.out.println("q: return to saved recipes");
+            userIn = userInput.next();
+	        
+            if (!HelloMongoDB.isNumber(userIn)){
+	        	if (userIn.equals(noMoreLoopString)) {
+	        		break;
+	        	}
+	        } // end !isNumber
+            if (HelloMongoDB.isNumber(userIn)) {
+            	int userInputInt = Integer.parseInt(userIn);
+            	if (userInputInt == 1) { // update recipe
+            		System.out.println("option not working");
+            		//MongoDBUpdate.main(1, recipeTitle, userInput);
+            		break;
+            	} // end update recipe
+            	if (userInputInt == 2) { // delete recipe
+            		MongoDBDelete.main(1, recipeTitle);
+            		break;
+            	} // end delete recipe
+            } // end isNumber
+        } // end while
         
         // find one document with Filters.eq()
         //Document student2 = recipeCollection.find(eq("title", recipeTitle)).first();
@@ -64,11 +94,46 @@ public class MongoDBRead {
         
     } // end findSpecificRecipe
     
-    private static void findSpecificRecipeId (MongoCollection<Document> recipeCollection, int recipeId) {
+    private static void findSpecificRecipeId (MongoCollection<Document> recipeCollection, String recipeInfo, Scanner userInput) {
         // find one document with new Document
+    	int recipeId = Integer.parseInt(recipeInfo);
         Document student1 = recipeCollection.find(new Document("id", recipeId)).first();
+        if (student1 == null) {
+        	System.out.println("cant find that recipe");
+        	System.out.println("returning to saved recipes");
+        	return;
+        }
+        
         System.out.println(recipeId + ": " + student1.toJson());
         
+        String noMoreLoopString = "q";
+        String userIn = "";
+        
+        while (!userIn.equals(noMoreLoopString)) {
+        	System.out.println("");
+            System.out.println("1: update recipe");
+            System.out.println("2: delete recipe");
+            System.out.println("q: return to saved recipes");
+            userIn = userInput.next();
+	        
+            if (!HelloMongoDB.isNumber(userIn)){
+	        	if (userIn.equals(noMoreLoopString)) {
+	        		break;
+	        	}
+	        } // end !isNumber
+            if (HelloMongoDB.isNumber(userIn)) {
+            	int userInputInt = Integer.parseInt(userIn);
+            	if (userInputInt == 1) { // update recipe
+            		System.out.println("option not working");
+            		//MongoDBUpdate.main(2, recipeInfo, userInput);
+            		break;
+            	} // end update recipe
+            	if (userInputInt == 2) { // delete recipe
+            		MongoDBDelete.main(2, recipeInfo);
+            		break;
+            	} // end delete recipe
+            } // end isNumber
+        } // end while
         // find one document with Filters.eq()
         //Document student2 = recipeCollection.find(eq("title", recipeId)).first();
         //System.out.println("Student 2: " + student2.toJson());

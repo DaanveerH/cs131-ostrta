@@ -16,18 +16,25 @@ import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Updates.*;
 
+import java.util.Scanner;
+
 public class MongoDBUpdate {
 
-    public static void main(String[] args) {
+    public static void main(int dataType, String recipeInfo, Scanner userInput) {
         JsonWriterSettings prettyPrint = JsonWriterSettings.builder().indent(true).build();
         
         String connectionString = "mongodb+srv://nuhret:somepass@atlascluster.4n1uead.mongodb.net/";
+        
+    	// TODO: dataType == 1, then recipeInfo == title
+    	//		 dataType == 2, then recipeInfo == id
+        
+        
         try (MongoClient mongoClient = MongoClients.create(connectionString)) {
             MongoDatabase sampleTrainingDB = mongoClient.getDatabase("CSC131_TM_Awesome");
             MongoCollection<Document> gradesCollection = sampleTrainingDB.getCollection("Data_Management");
-
-            // update one document
             
+            /*
+            // update one document
             Bson filter = eq("student_id", 10000);
             Bson updateOperation = set("comment", "MongoDBUpdate class update function test");
             // update method for one document: two parameters, filter and updateOperation
@@ -52,9 +59,10 @@ public class MongoDBUpdate {
             updateResult = gradesCollection.updateMany(filter, updateOperation);
             System.out.println("\n=> Updating all the documents with {\"student_id\":10001}.");
             System.out.println(updateResult);
+            */
             
             // find and update one document
-            filter = eq("student_id", 10002);
+            Bson filter = eq("student_id", 10002);
             Bson update1 = inc("x", 10); // increment x by 10. As x doesn't exist yet, x=10.
             Bson update2 = rename("class_id", "new_class_id"); // rename variable "class_id" in "new_class_id".
             Bson update3 = mul("scores.0.score", 2); // multiply the first score in the array by 2.
@@ -62,9 +70,11 @@ public class MongoDBUpdate {
             Bson update5 = addToSet("comments", "This comment is uniq"); // using addToSet so no effect.
             Bson updates = combine(update1, update2, update3, update4, update5);
             // returns the old version of the document before the update.
+            /*
             Document oldVersion = gradesCollection.findOneAndUpdate(filter, updates);
             System.out.println("\n=> FindOneAndUpdate operation. Printing the old version by default:");
             System.out.println(oldVersion.toJson(prettyPrint));
+            */
             // but I can also request the new version
             filter = eq("student_id", 10001);
             FindOneAndUpdateOptions optionAfter = new FindOneAndUpdateOptions().returnDocument(ReturnDocument.AFTER);

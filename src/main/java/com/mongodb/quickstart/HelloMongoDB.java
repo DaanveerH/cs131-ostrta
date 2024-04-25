@@ -36,7 +36,7 @@ public class HelloMongoDB {
     		System.out.println("Options:");
     		System.out.println("1: search new recipes");		// TODO: search new recipes					(done)
     		System.out.println("2: view saved recipes");		// TODO: view saved recipes					(in progress)
-    		System.out.println("3: not working");				// TODO: create new recipe from scratch		(in progress)
+    		System.out.println("3: create new recipe");			// TODO: create new recipe from scratch		(in progress)
     		System.out.println("q: exit program");
     		// scan input from console to get next action
     		userInput = userIn.next();
