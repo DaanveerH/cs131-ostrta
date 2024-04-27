@@ -50,14 +50,14 @@ public class MongoDBRead {
     
     private static void findSpecificRecipeTitle (MongoCollection<Document> recipeCollection, String recipeTitle, Scanner userInput) {
         // find one document with new Document
-        Document student1 = recipeCollection.find(new Document("title", recipeTitle)).first();
-        if (student1 == null) {
+        Document specificRecipe = recipeCollection.find(new Document("title", recipeTitle)).first();
+        if (specificRecipe == null) {
         	System.out.println("cant find that recipe");
         	System.out.println("returning to saved recipes");
         	return;
         }
         
-        System.out.println(recipeTitle + ": " + student1.toJson());
+        System.out.println(recipeTitle + ": " + specificRecipe.toJson());
         
         String noMoreLoopString = "q";
         String userIn = "";
@@ -76,13 +76,13 @@ public class MongoDBRead {
 	        } // end !isNumber
             if (HelloMongoDB.isNumber(userIn)) {
             	int userInputInt = Integer.parseInt(userIn);
-            	if (userInputInt == 1) { // update recipe
-            		System.out.println("option not working");
-            		//MongoDBUpdate.main(1, recipeTitle, userInput);
+            	if (userInputInt == 1) { 					// update recipe
+            		//System.out.println("option not working");
+            		MongoDBUpdate.main("title", recipeTitle, userInput);
             		break;
             	} // end update recipe
-            	if (userInputInt == 2) { // delete recipe
-            		MongoDBDelete.main(1, recipeTitle);
+            	if (userInputInt == 2) { 					// delete recipe
+            		MongoDBDelete.main("title", recipeTitle);
             		break;
             	} // end delete recipe
             } // end isNumber
@@ -97,14 +97,14 @@ public class MongoDBRead {
     private static void findSpecificRecipeId (MongoCollection<Document> recipeCollection, String recipeInfo, Scanner userInput) {
         // find one document with new Document
     	int recipeId = Integer.parseInt(recipeInfo);
-        Document student1 = recipeCollection.find(new Document("id", recipeId)).first();
-        if (student1 == null) {
+        Document specificRecipe = recipeCollection.find(new Document("id", recipeId)).first();
+        if (specificRecipe == null) {
         	System.out.println("cant find that recipe");
         	System.out.println("returning to saved recipes");
         	return;
         }
         
-        System.out.println(recipeId + ": " + student1.toJson());
+        System.out.println(recipeId + ": " + specificRecipe.toJson());
         
         String noMoreLoopString = "q";
         String userIn = "";
@@ -123,13 +123,13 @@ public class MongoDBRead {
 	        } // end !isNumber
             if (HelloMongoDB.isNumber(userIn)) {
             	int userInputInt = Integer.parseInt(userIn);
-            	if (userInputInt == 1) { // update recipe
-            		System.out.println("option not working");
-            		//MongoDBUpdate.main(2, recipeInfo, userInput);
+            	if (userInputInt == 1) { 					// update recipe
+            		//System.out.println("option not working");
+            		MongoDBUpdate.main("id", recipeInfo, userInput);
             		break;
             	} // end update recipe
-            	if (userInputInt == 2) { // delete recipe
-            		MongoDBDelete.main(2, recipeInfo);
+            	if (userInputInt == 2) { 					// delete recipe
+            		MongoDBDelete.main("id", recipeInfo);
             		break;
             	} // end delete recipe
             } // end isNumber

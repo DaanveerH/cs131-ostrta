@@ -73,8 +73,8 @@ public class HelloMongoDB {
     	 * 		- from mongoDB
     	 * 				- show all recipes				(done)
     	 * 				- show individual recipe		(done)
-    	 * 				- edit recipe					{MongoDBUpdate.main();}
-    	 * 				- delete recipe					{MongoDBDelete.main();}
+    	 * 				- edit recipe					(done)
+    	 * 				- delete recipe					(done)
     	 * 				- print recipe
     	 * - create new recipe:    (user input = 3)		(in progress)
     	 * 				- create new recipe				{MongoDBCreate.main();}
@@ -117,7 +117,7 @@ public class HelloMongoDB {
     
     public static void optionSearchRecipes(Scanner userIn) {
     	String 		paramsToSearch 		= "";
-    	int    		numResults			= 5;			//TODO: change to higher number at later time
+    	int    		numResults			= 25;			//TODO: change to higher number at later time
     	String 		noMoreLoopString 	= "q";
         int 		paramsToSearchID;
     	
