@@ -34,8 +34,8 @@ public class HelloMongoDB {
     		// print menu to console
     		System.out.println("");
     		System.out.println("Options:");
-    		System.out.println("1: search new recipes");		// TODO: search new recipes					(done)
-    		System.out.println("2: view saved recipes");		// TODO: view saved recipes					(in progress)
+    		System.out.println("1: search new recipes");
+    		System.out.println("2: view saved recipes");
     		System.out.println("3: create new recipe");			// TODO: create new recipe from scratch		(in progress)
     		System.out.println("q: exit program");
     		// scan input from console to get next action
@@ -44,16 +44,13 @@ public class HelloMongoDB {
     		if (HelloMongoDB.isNumber(userInput)) {  // if isNumber, then {1, 2, 3, invalid}
     			userInputInt = Integer.parseInt(userInput);
     			if ( userInputInt == menuOption1) {
-    				//System.out.println("option 1 not available");
     				HelloMongoDB.optionSearchRecipes(userIn);
     			} // end menuOption1
     			if ( userInputInt == menuOption2) {
-    				//System.out.println("option 2 not available");
-    				HelloMongoDB.optionViewSavedRecipes(userIn);
+    				MongoDBRead.main(userIn);
     			} // end menuOption2
     			if ( userInputInt == menuOption3) {
-    				System.out.println("option 3 not available");
-    				//HelloMongoDB.optionCreateNewRecipe(userIn);
+    				MongoDBCreateScratch.main(userIn);
     			} // end menuOption3
     		} // end if isNumber
     		
@@ -149,22 +146,7 @@ public class HelloMongoDB {
     	System.out.println("returning to menu");
     	
     } // end optionSearchRecipes
-    
-    public static void optionViewSavedRecipes(Scanner userIn) {
-    	// TODO: need connection to MongoDBRead
-    	MongoDBRead.main(userIn);
-    	// TODO: need connection to MongoDBUpdate
-    	//MongoDBUpdate.main();
-    	// TODO: need connection to MongoDBDelete
-    	//MongoDBDelete.main();
-    } // end optionViewSavedRecipes
-    
-    public static void optionCreateNewRecipe(Scanner userIn) {
-    	// TODO: need connection to MongoDBCreate
-    	//MongoDBCreateScratch.main(userIn);
-    	// TODO: need connection to MongoDBDelete
-    	//MongoDBDelete.main();
-    } // end optionCreateNewRecipe
+
     
     
 } // end HelloMongoDB class

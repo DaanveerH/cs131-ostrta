@@ -57,7 +57,7 @@ public class MongoDBUpdate {
             
             while (!userIn.equals(noMoreLoopString)) {
             	System.out.println("");
-            	System.out.println("1: add  comment");
+            	System.out.println("1: add comment");
             	System.out.println("2: add ingredients");
             	System.out.println("3: add instructions");
             	System.out.println("q: return to recipe");
