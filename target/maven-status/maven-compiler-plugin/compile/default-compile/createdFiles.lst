@@ -112,6 +112,7 @@ com\spoonacular\IngredientsApi$10.class
 com\spoonacular\MenuItemsApi$3.class
 com\spoonacular\RecipesApi$71.class
 com\spoonacular\RecipesApi$74.class
+com\spoonacular\RecipeSearchByID.class
 com\spoonacular\client\model\GetARandomFoodJoke200Response.class
 com\spoonacular\client\model\GetMealPlanWeek200ResponseDaysInnerItemsInnerValue.class
 com\spoonacular\client\model\SearchGroceryProductsByUPC200ResponseNutrition$CustomTypeAdapterFactory.class
@@ -312,6 +313,7 @@ com\spoonacular\RecipesApi$26.class
 com\spoonacular\MenuItemsApi$9.class
 com\spoonacular\client\model\GetWinePairing200ResponseProductMatchesInner$CustomTypeAdapterFactory.class
 com\spoonacular\MiscApi$8.class
+com\mongodb\quickstart\MongoDBRead.class
 com\spoonacular\client\model\AnalyzeARecipeSearchQuery200ResponseIngredientsInner.class
 com\spoonacular\MealPlanningApi$13.class
 com\spoonacular\client\model\GetRecipeNutritionWidgetByID200ResponseGoodInner$CustomTypeAdapterFactory$1.class
@@ -344,6 +346,7 @@ com\spoonacular\MiscApi$10.class
 com\spoonacular\client\model\ClassifyCuisine200Response$CustomTypeAdapterFactory$1.class
 com\spoonacular\client\model\ParseIngredients200ResponseInnerNutritionWeightPerServing$CustomTypeAdapterFactory$1.class
 com\spoonacular\ProductsApi$16.class
+com\mongodb\quickstart\MongoDBCreateScratch.class
 com\spoonacular\RecipesApi$27.class
 com\spoonacular\RecipeSearchApp.class
 com\spoonacular\client\model\GetRecipePriceBreakdownByID200ResponseIngredientsInnerAmount$CustomTypeAdapterFactory$1.class
@@ -364,6 +367,7 @@ com\spoonacular\MenuItemsApi$12.class
 com\spoonacular\MenuItemsApi$7.class
 com\spoonacular\client\model\ComputeGlycemicLoad200Response$CustomTypeAdapterFactory.class
 com\spoonacular\client\model\GetIngredientInformation200ResponseNutrition$CustomTypeAdapterFactory.class
+com\mongodb\quickstart\MongoDBSave.class
 com\spoonacular\ProductsApi$17.class
 com\spoonacular\client\JSON$SqlDateTypeAdapter.class
 com\spoonacular\RecipesApi$33.class
@@ -478,6 +482,7 @@ com\spoonacular\client\model\SearchGroceryProductsByUPC200Response.class
 com\spoonacular\MiscApi$16.class
 com\spoonacular\client\model\GetMealPlanTemplate200ResponseDaysInnerItemsInnerValue$CustomTypeAdapterFactory$1.class
 com\spoonacular\client\model\DeleteFromMealPlanRequest$CustomTypeAdapterFactory$1.class
+com\mongodb\quickstart\MongoDBUpdate.class
 com\spoonacular\client\model\GetRecipeNutritionWidgetByID200Response$CustomTypeAdapterFactory$1.class
 com\spoonacular\RecipesApi$24.class
 com\spoonacular\client\model\GetRecipeInformation200Response.class
@@ -539,6 +544,7 @@ com\spoonacular\client\model\AnalyzeRecipeInstructions200ResponseParsedInstructi
 com\spoonacular\RecipesApi$45.class
 com\spoonacular\client\model\SearchFoodVideos200Response.class
 com\spoonacular\client\GzipRequestInterceptor$1.class
+com\mongodb\quickstart\MongoDBDelete.class
 com\spoonacular\client\model\GetMealPlanWeek200ResponseDaysInnerNutritionSummaryNutrientsInner$CustomTypeAdapterFactory$1.class
 com\spoonacular\client\model\GetRecipeInformation200ResponseExtendedIngredientsInner$CustomTypeAdapterFactory$1.class
 com\spoonacular\client\auth\Authentication.class
@@ -607,6 +613,7 @@ com\spoonacular\client\model\GetRandomFoodTrivia200Response$CustomTypeAdapterFac
 com\spoonacular\client\model\SearchAllFood200Response.class
 com\spoonacular\client\model\ClassifyGroceryProduct200Response$CustomTypeAdapterFactory.class
 com\spoonacular\client\model\ImageAnalysisByURL200ResponseCategory$CustomTypeAdapterFactory.class
+com\mongodb\quickstart\MongoDBConnection.class
 com\spoonacular\client\model\SearchRestaurants200ResponseRestaurantsInnerLocalHoursOperational$CustomTypeAdapterFactory$1.class
 com\spoonacular\client\Configuration.class
 com\spoonacular\client\model\DetectFoodInText200Response.class
