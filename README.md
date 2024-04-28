@@ -38,10 +38,10 @@ Confirm with ```mvn -version``` in a new shell. The result should look similar t
 You may want to run a clean install of mvn before proceeding further. Do so by running the command:
     ```mvn clean install```
 
-### How to ping the server
-To ping the server with "Hello World" you should run the following command in your terminal.
+### How to run the app
+To run the app run the following command in your CLI:
 
-```mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.HelloMongoDB"``` 
+```myapp.bat``` 
 
 
 ### TGould changes
