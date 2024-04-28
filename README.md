@@ -41,12 +41,17 @@ You may want to run a clean install of mvn before proceeding further. Do so by r
 ### How to ping the server
 To ping the server with "Hello World" you should run the following command in your terminal.
 
-```mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.HelloMongoDB"``` This should prompt the following response:
+```mvn compile exec:java -Dexec.mainClass="com.mongodb.quickstart.HelloMongoDB"``` 
 
-    Hello MongoDB!
-    [INFO] ------------------------------------------------------------------------
-    [INFO] BUILD SUCCESS
-    [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  0.634 s
-    [INFO] Finished at: 2024-02-19T18:12:22+01:00
-    [INFO] ------------------------------------------------------------------------
+
+### TGould changes
+Run program through the terminal using the same command to ping the server.  
+
+4/27/2024 
+- can search recipes in spoonacular by query or id
+- from individual spoonacular recipe, can save to MongoDB
+- can view list of recipes saved in MongoDB
+- from list in MongoDB, can view individual recipes saved in MongoDB by id or title
+- from individual MongoDB recipe, can delete recipe from MongoDB by id or title
+- can add comments, new ingredients, and new instructions to individual recipe in MongoDB
+- can create recipe from scratch (creates blank recipe with only id and title, uses update function to add ingredients and instructions)
