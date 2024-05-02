@@ -5,6 +5,7 @@ import com.spoonacular.client.ApiException;
 import com.spoonacular.client.Configuration;
 import com.spoonacular.client.auth.ApiKeyAuth;
 import com.mongodb.quickstart.HelloMongoDB;
+import com.mongodb.quickstart.JSONParse;
 import com.mongodb.quickstart.MongoDBSave;
 import com.spoonacular.DefaultApi;
 import java.io.IOException;
@@ -64,7 +65,48 @@ public class RecipeSearchByID {
             response = scanner.next();
             scanner.close();
             System.out.println("");
-            System.out.println("Recipe: " + response);
+            JSONParse.main(response);
+            /*  testing
+            JSONObject responseJO = new JSONObject(response);
+        	String recipeName = responseJO.getString("title");
+        	System.out.println(recipeName);
+        	System.out.println("----------------");
+        	
+        	
+    		JSONArray ingredientList = responseJO.getJSONArray("extendedIngredients");
+    		System.out.println("ingredients used:");
+            
+            for(int i = 0; i < ingredientList.length(); i++) {
+            	JSONObject tempJO = ingredientList.getJSONObject(i);
+            	String ingredientName = tempJO.getString("nameClean");
+            	int ingredientAmount = tempJO.getInt("amount");
+            	String ingredientUnit = tempJO.getString("unit");
+            	System.out.println(ingredientName + ": " + ingredientAmount + ingredientUnit);
+            }
+        	
+            System.out.println("");
+            System.out.println("instructions:");
+            JSONArray instructionList = responseJO.getJSONArray("analyzedInstructions");
+            JSONObject instructionList2 = instructionList.getJSONObject(0);
+            JSONArray stepList = instructionList2.getJSONArray("steps");
+            
+            for (int i = 0; i < instructionList2.length(); i++){
+            	JSONObject tempJO = stepList.getJSONObject(i);
+            	int stepNum = tempJO.getInt("number");
+            	String stepInstruction = tempJO.getString("step");
+            	//int lengthNum = tempJO.getInt("number");
+            	//String lengthUnit = tempJO.getString("unit");
+            	System.out.println(stepNum + ": " + stepInstruction);
+            	//System.out.println("for "+ lengthNum + " " + lengthUnit);
+            }
+            
+            
+        	// print out parameters
+        	//System.out.println("Name: " + recipeName);
+            */
+            
+            //System.out.println("Recipe: " + response);
+            System.out.println("");
         	System.out.println("1: save recipe");
         	System.out.println("any other key: new search");
             

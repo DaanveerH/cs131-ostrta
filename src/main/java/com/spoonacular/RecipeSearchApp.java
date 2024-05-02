@@ -52,8 +52,8 @@ public class RecipeSearchApp {
             //System.out.println(response);
             
             JSONObject responseJO = new JSONObject(scanner.next());
-            int response = responseJO.getInt("totalResults");
-            System.out.println(response + "recipes available, showing " + numberToShow);
+            int responseTotal = responseJO.getInt("totalResults");
+            System.out.println(responseTotal + "recipes available, showing " + numberToShow);
             JSONArray responseList = responseJO.getJSONArray("results");
             
             for(int i = 0; i < responseList.length(); i++) {
