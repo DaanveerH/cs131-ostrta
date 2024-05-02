@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.spoonacular.client.model.GetRecipeInformationBulk200ResponseInnerTest
 -------------------------------------------------------------------------------
-Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.spoonacular.client.model.GetRecipeInformationBulk200ResponseInnerTest
+Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in com.spoonacular.client.model.GetRecipeInformationBulk200ResponseInnerTest
