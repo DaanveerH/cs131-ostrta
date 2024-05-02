@@ -36,7 +36,7 @@ public class HelloMongoDB {
     		System.out.println("Options:");
     		System.out.println("1: search new recipes");
     		System.out.println("2: view saved recipes");
-    		System.out.println("3: create new recipe");			// TODO: create new recipe from scratch		(in progress)
+    		System.out.println("3: create new recipe");
     		System.out.println("q: exit program");
     		// scan input from console to get next action
     		userInput = userIn.next();
@@ -61,36 +61,6 @@ public class HelloMongoDB {
     		} // end if !isNumber
     		
     	} // end main menu loop
-    	
-    	//TODO: console loop and functionalities
-    	/* - what does user want to do: 
-    	 * 			search new recipes, view saved recipe, create new recipe (from scratch) 
-    	 * - search new recipe:    (user input = 1) 	(done)
-    	 * - viewing saved recipe: (user input = 2)		(in progress)
-    	 * 		- from mongoDB
-    	 * 				- show all recipes				(done)
-    	 * 				- show individual recipe		(done)
-    	 * 				- edit recipe					(done)
-    	 * 				- delete recipe					(done)
-    	 * 				- print recipe
-    	 * - create new recipe:    (user input = 3)		(in progress)
-    	 * 				- create new recipe				{MongoDBCreate.main();}
-    	 * 				- input: name, ingredients, instructions, avg prep/cook time, etc... 
-    	 * 						- check from existing spoonacular recipe
-    	 */
-    	
-    	// how to parse json string for specific arguements
-    	/*    	
-    	JSONObject responseJO;
-    	String jsonString = "";
-    	String recipeName = "";
-    	int    recipeId;
-        jsonString = cursor.next().toJson();
-        responseJO = new JSONObject(jsonString);
-        recipeId = responseJO.getInt("id");
-    	recipeName = responseJO.getString("title");
-        System.out.println(recipeId + ": " +recipeName); 
-    	*/
     	
     	
     	// close scanner (in)

@@ -83,7 +83,7 @@ public class MongoDBUpdate {
                 		System.out.println("enter ingredient to add");
                 		Bson update1 = set("nameClean", userInput.next());
                 		System.out.println("enter amount of ingredient (no units of measure yet)");
-                		Bson update2 = set("amount", userInput.next());
+                		Bson update2 = set("amount", userInput.nextInt());
                 		System.out.println("enter unit of measure");
                 		Bson update3 = set("unit", userInput.next());
                 		Bson ingredientDoc = combine(update1, update2, update3);
@@ -97,7 +97,7 @@ public class MongoDBUpdate {
                 		System.out.println("enter instruction to add");
                 		Bson update2 = set("step", userInput.next());
                 		System.out.println("enter step number");
-                		Bson update1 = set("number", userInput.next());
+                		Bson update1 = set("number", userInput.nextInt());
                 		
                 		Bson ingredientDoc = combine(update1, update2);
                 		
