@@ -81,10 +81,12 @@ public class MongoDBUpdate {
                 	if (userInputInt == 2) {		// add ingredient
                 		System.out.println("");
                 		System.out.println("enter ingredient to add");
-                		Bson update1 = set("name", userInput.next());
-                		System.out.println("enter amount of ingredient");
+                		Bson update1 = set("nameClean", userInput.next());
+                		System.out.println("enter amount of ingredient (no units of measure yet)");
                 		Bson update2 = set("amount", userInput.next());
-                		Bson ingredientDoc = combine(update1, update2);
+                		System.out.println("enter unit of measure");
+                		Bson update3 = set("unit", userInput.next());
+                		Bson ingredientDoc = combine(update1, update2, update3);
 
                 		Bson updateOperation = push("extendedIngredients", ingredientDoc);
                 		UpdateResult updateResult = recipeCollection.updateOne(filter, updateOperation);

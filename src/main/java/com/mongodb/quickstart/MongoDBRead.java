@@ -57,7 +57,8 @@ public class MongoDBRead {
         	return;
         }
         
-        System.out.println(recipeTitle + ": " + specificRecipe.toJson());
+        JSONParse.main(specificRecipe.toJson());
+        //System.out.println(recipeTitle + ": " + specificRecipe.toJson());
         
         String noMoreLoopString = "q";
         String userIn = "";
@@ -104,7 +105,8 @@ public class MongoDBRead {
         	return;
         }
         
-        System.out.println(recipeId + ": " + specificRecipe.toJson());
+        JSONParse.main(specificRecipe.toJson());
+        //System.out.println(recipeId + ": " + specificRecipe.toJson());
         
         String noMoreLoopString = "q";
         String userIn = "";
